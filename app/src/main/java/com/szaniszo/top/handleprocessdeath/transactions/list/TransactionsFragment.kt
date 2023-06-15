@@ -23,10 +23,12 @@ class TransactionsFragment : Fragment() {
     private val adapter = TransactionListAdapter { transaction ->
         findNavController().navigate(
             TransactionsFragmentDirections.actionTransactionsFragmentToMakeTransactionFragment(
-                transaction.accountNumber,
-                transaction.amount
+                transaction.account,
+                transaction.amount,
+                transaction.recepient,
             )
         )
+
     }
 
     override fun onCreateView(

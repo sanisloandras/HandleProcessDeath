@@ -58,11 +58,15 @@
         android:name="com.szaniszo.top.handleprocessdeath.transactions.maketransaction.MakeTransactionFragment"
         android:label="MakeTransactionFragment" >
         <argument
-            android:name="accountNumber"
+            android:name="account"
             app:argType="string"
             app:nullable="true" />
         <argument
             android:name="amount"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="recepient"
             app:argType="string"
             app:nullable="true" />
     </fragment>

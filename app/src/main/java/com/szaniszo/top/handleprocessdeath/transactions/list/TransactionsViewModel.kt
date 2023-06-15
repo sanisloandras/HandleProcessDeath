@@ -15,7 +15,7 @@ class TransactionsViewModel @Inject constructor() : ViewModel() {
     val transactions = MutableStateFlow((1..50).map { i ->
         Transaction(
             "id_$i",
-            accountNumber = accountNumbers[(i % accountNumbers.size)],
+            account = accountNumbers[(i % accountNumbers.size)],
             amount = (i * 1000).toString(),
             recepient = "RECEPIENT_$i"
         )

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2019-2023 by OTP Bank Plc. All rights reserved.
+  ~
+  ~ The copyright to the computer software herein is the property of
+  ~ OTP Bank Plc or its licensors. The software may be used and/or
+  ~ copied only with the written permission of OTP Bank Plc or in
+  ~ accordance with the terms and conditions stipulated in the
+  ~ agreement/contract under which the software has been supplied.
+  -->
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.szaniszo.top.handleprocessdeath.transactions.maketransaction.MakeTransactionViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_recepient"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Kedvezményezett neve">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tie_recepient"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionDone"
+                android:inputType="text"
+                android:text="@={vm.recepient}" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_account"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Számlaszám">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tie_account"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionDone"
+                android:inputType="text"
+                android:text="@={vm.account}" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_amount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Összeg"
+            android:labelFor="@id/szep_card_number_value">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tie_amount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionDone"
+                android:inputType="text"
+                android:text="@={vm.amount}" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_note"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Közlemény"
+            android:labelFor="@id/szep_card_number_value">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tie_note"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionDone"
+                android:inputType="text"
+                android:text="@={vm.note}" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/btn_do_it"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> vm.makeTransaction()}"
+            android:text="Utalás indítása" />
+
+    </LinearLayout>
+</layout>
