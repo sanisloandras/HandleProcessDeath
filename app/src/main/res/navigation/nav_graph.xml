@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/nav_graph"
+            app:startDestination="@id/demoFragment">
+
+    <fragment
+        android:id="@+id/szepRegisterFragment"
+        android:name="com.szaniszo.top.handleprocessdeath.szepregister.simple.SzepRegisterFragment"
+        android:label="SzepRegisterFragment"
+        tools:layout="@layout/szep_register_fragment" />
+
+    <fragment
+        android:id="@+id/demoFragment"
+        android:name="com.szaniszo.top.handleprocessdeath.DemoFragment"
+        android:label="DemoFragment">
+        <action
+            android:id="@+id/action_demoFragment_to_szepRegisterFragment"
+            app:destination="@id/szepRegisterFragment" />
+        <action
+            android:id="@+id/action_demoFragment_to_szepRegisterSavedStateHandleFragment"
+            app:destination="@id/szepRegisterSavedStateHandleFragment" />
+        <action
+            android:id="@+id/action_demoFragment_to_szepRegisterSavedStateHandleExtFragment"
+            app:destination="@id/szepRegisterSavedStateHandleExtFragment" />
+        <action
+            android:id="@+id/action_demoFragment_to_szepRegisterSavedStateHandleLiveDataFragment"
+            app:destination="@id/szepRegisterSavedStateHandleLiveDataFragment" />
+        <action
+            android:id="@+id/action_demoFragment_to_transactionsFragment"
+            app:destination="@id/transactionsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/szepRegisterSavedStateHandleFragment"
+        android:name="com.szaniszo.top.handleprocessdeath.szepregister.savedstatehandle.SzepRegisterSavedStateHandleFragment"
+        android:label="SzepRegisterSavedStateHandleFragment"
+        tools:layout="@layout/szep_register_fragment" />
+    <fragment
+        android:id="@+id/szepRegisterSavedStateHandleExtFragment"
+        android:name="com.szaniszo.top.handleprocessdeath.szepregister.savedstatehandleext.SzepRegisterSavedStateHandleExtFragment"
+        android:label="SzepRegisterSavedStateHandleExtFragment" />
+    <fragment
+        android:id="@+id/szepRegisterSavedStateHandleLiveDataFragment"
+        android:name="com.szaniszo.top.handleprocessdeath.szepregister.savedstatehandlelivedata.SzepRegisterSavedStateHandleLiveDataFragment"
+        android:label="SzepRegisterSavedStateHandleLiveDataFragment" />
+    <fragment
+        android:id="@+id/transactionsFragment"
+        android:name="com.szaniszo.top.handleprocessdeath.transactions.list.TransactionsFragment"
+        android:label="TransactionsFragment" >
+        <action
+            android:id="@+id/action_transactionsFragment_to_makeTransactionFragment"
+            app:destination="@id/makeTransactionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/makeTransactionFragment"
+        android:name="com.szaniszo.top.handleprocessdeath.transactions.maketransaction.MakeTransactionFragment"
+        android:label="MakeTransactionFragment" >
+        <argument
+            android:name="accountNumber"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="amount"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+</navigation>

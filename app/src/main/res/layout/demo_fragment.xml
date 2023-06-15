@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data />
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/szep_register_simple"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Szep Register Simple" />
+
+        <Button
+            android:id="@+id/szep_register_saved_state_handle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Szep Register Saved State Handle" />
+
+        <Button
+            android:id="@+id/szep_register_saved_state_handle_ext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Szep Register Saved State Handle Extension" />
+
+        <Button
+            android:id="@+id/szep_register_saved_state_handle_live_data"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Szep Register Saved State Handle LiveData" />
+
+        <Button
+            android:id="@+id/transactions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Transactions" />
+    </LinearLayout>
+</layout>

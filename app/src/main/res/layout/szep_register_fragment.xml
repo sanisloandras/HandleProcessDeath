@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2019-2023 by OTP Bank Plc. All rights reserved.
+  ~
+  ~ The copyright to the computer software herein is the property of
+  ~ OTP Bank Plc or its licensors. The software may be used and/or
+  ~ copied only with the written permission of OTP Bank Plc or in
+  ~ accordance with the terms and conditions stipulated in the
+  ~ agreement/contract under which the software has been supplied.
+  -->
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.szaniszo.top.handleprocessdeath.szepregister.simple.SzepRegisterViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/szep_card_number_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="SZEP Card Number">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/szep_card_number_value"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionDone"
+                android:inputType="numberDecimal"
+                android:text="@={vm.cardNumber}" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/szep_card_birthdate_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Birth Date"
+            android:labelFor="@id/szep_card_number_value">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/szep_card_birthdate_value"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionDone"
+                android:inputType="text"
+                android:text="@={vm.birthDate}" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/tac_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:checked="@={vm.tacSwitch}"
+            android:padding="16dp"
+            android:text="TAC Switch" />
+
+        <Button
+            android:id="@+id/btn_register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> vm.register()}"
+            android:text="Register" />
+
+    </LinearLayout>
+</layout>
