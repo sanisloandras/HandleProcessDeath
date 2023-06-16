@@ -60,14 +60,17 @@
         <argument
             android:name="account"
             app:argType="string"
-            app:nullable="true" />
+            app:nullable="true"
+            />
         <argument
             android:name="amount"
             app:argType="string"
-            app:nullable="true" />
+            app:nullable="true"
+            />
         <argument
             android:name="recepient"
             app:argType="string"
-            app:nullable="true" />
+            app:nullable="true"
+            />
     </fragment>
 </navigation>

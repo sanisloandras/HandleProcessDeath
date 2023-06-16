@@ -11,6 +11,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.szaniszo.top.handleprocessdeath.databinding.FragmentTransactionsBinding
+import com.szaniszo.top.handleprocessdeath.transactions.Transaction
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -20,7 +21,15 @@ class TransactionsFragment : Fragment() {
 
     private lateinit var viewDataBinding: FragmentTransactionsBinding
 
-    private val adapter = TransactionListAdapter { transaction ->
+    private val newTransactionClickHandler = View.OnClickListener {
+        findNavController().navigate(
+            TransactionsFragmentDirections.actionTransactionsFragmentToMakeTransactionFragment(
+                null, null, null
+            )
+        )
+    }
+
+    private val reSendTransactionClickHandler : (Transaction) -> Unit = { transaction ->
         findNavController().navigate(
             TransactionsFragmentDirections.actionTransactionsFragmentToMakeTransactionFragment(
                 transaction.account,
@@ -28,8 +37,9 @@ class TransactionsFragment : Fragment() {
                 transaction.recepient,
             )
         )
-
     }
+
+    private val adapter = TransactionListAdapter(reSendTransactionClickHandler)
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -45,9 +55,12 @@ class TransactionsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewDataBinding.lifecycleOwner = viewLifecycleOwner
-
         viewDataBinding.rvTransactions.adapter = this.adapter
+        collectTransactions()
+        viewDataBinding.btnNewTransaction.setOnClickListener(newTransactionClickHandler)
+    }
 
+    private fun collectTransactions() {
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.transactions.collect {
