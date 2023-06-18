@@ -1,0 +1,9 @@
+package com.szaniszo.top.handleprocessdeath.discountboxes.modification
+
+import androidx.lifecycle.ViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
+
+@HiltViewModel
+class DiscountBoxModificationListViewModel @Inject constructor(): ViewModel() {
+}

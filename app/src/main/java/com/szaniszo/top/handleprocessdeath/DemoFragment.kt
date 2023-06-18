@@ -37,5 +37,8 @@ class DemoFragment : Fragment() {
         viewDataBinding.transactions.setOnClickListener {
             findNavController().navigate(DemoFragmentDirections.actionDemoFragmentToTransactionsFragment())
         }
+        viewDataBinding.discountBoxes.setOnClickListener {
+            findNavController().navigate(DemoFragmentDirections.toGraphDiscountBoxes())
+        }
     }
 }
