@@ -11,13 +11,16 @@
         android:label="DiscountBoxListFragment"
         tools:layout="@layout/discount_box_list_fragment">
         <action
-            android:id="@+id/action_discountBoxListFragment_to_discountBoxModificationListFragment"
-            app:destination="@id/discountBoxModificationListFragment" />
+            android:id="@+id/to_discountBoxDetailsFragment"
+            app:destination="@id/discountBoxDetailsFragment" />
     </fragment>
 
     <fragment
-        android:id="@+id/discountBoxModificationListFragment"
-        android:name="com.szaniszo.top.handleprocessdeath.discountboxes.modification.DiscountBoxModificationListFragment"
-        android:label="DiscountBoxModificationListFragment"
-        tools:layout="@layout/discount_box_modification_list_fragment" />
+        android:id="@+id/discountBoxDetailsFragment"
+        android:name="com.szaniszo.top.handleprocessdeath.discountboxes.details.DiscountBoxDetailsFragment"
+        android:label="DiscountBoxDetailsFragment">
+        <argument
+            android:name="discountBoxId"
+            app:argType="string" />
+    </fragment>
 </navigation>
