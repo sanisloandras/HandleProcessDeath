@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.szaniszo.top.handleprocessdeath.data.model.DiscountBox
 import com.szaniszo.top.handleprocessdeath.databinding.DiscountBoxListItemBinding
 
-class DiscountBoxListAdapter :
+class DiscountBoxListAdapter(private val clickHandler: (String) -> Unit) :
     ListAdapter<DiscountBox, DiscountBoxListAdapter.VH>(object : DiffUtil.ItemCallback<DiscountBox>() {
         override fun areItemsTheSame(oldItem: DiscountBox, newItem: DiscountBox): Boolean {
             return oldItem.id == newItem.id
@@ -20,6 +20,12 @@ class DiscountBoxListAdapter :
     }) {
 
     inner class VH(val binding: DiscountBoxListItemBinding) : ViewHolder(binding.root) {
+
+        init {
+            binding.root.setOnClickListener {
+                clickHandler(getItem(adapterPosition).id)
+            }
+        }
 
         fun bind(discountBox: DiscountBox) {
             binding.data = discountBox
