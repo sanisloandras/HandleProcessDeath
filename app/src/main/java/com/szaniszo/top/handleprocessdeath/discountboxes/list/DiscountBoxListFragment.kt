@@ -5,21 +5,28 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
+import androidx.hilt.navigation.fragment.hiltNavGraphViewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
+import com.szaniszo.top.handleprocessdeath.R
 import com.szaniszo.top.handleprocessdeath.databinding.DiscountBoxListFragmentBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class DiscountBoxListFragment : Fragment() {
-    private val viewModel by viewModels<DiscountBoxListViewModel>()
+    //private val viewModel by viewModels<DiscountBoxListViewModel>()
+    private val viewModel
+        by hiltNavGraphViewModels<DiscountBoxListViewModel>(R.id.graph_discount_boxes_temp)
 
     private lateinit var viewDataBinding: DiscountBoxListFragmentBinding
-    private val adapter = DiscountBoxListAdapter()
+    private val adapter = DiscountBoxListAdapter {
+        findNavController().navigate(
+            DiscountBoxListFragmentDirections.toDiscountBoxDetailsFragment(it)
+        )
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -42,7 +49,7 @@ class DiscountBoxListFragment : Fragment() {
 
     private fun collectDiscountBoxList() {
         viewLifecycleOwner.lifecycleScope.launch {
-            repeatOnLifecycle(Lifecycle.State.RESUMED) {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.discountBoxList.collect {
                     adapter.submitList(it)
                 }
@@ -54,9 +61,10 @@ class DiscountBoxListFragment : Fragment() {
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.RESUMED) {
                 viewModel.navigateToModification.collect {
-                    findNavController().navigate(
-                        DiscountBoxListFragmentDirections.actionDiscountBoxListFragmentToDiscountBoxModificationListFragment()
-                    )
+                    /*findNavController().navigate(
+                        DiscountBoxListFragmentDirections
+                            .actionDiscountBoxListFragmentToDiscountBoxModificationListFragment()
+                    )*/
                 }
             }
         }

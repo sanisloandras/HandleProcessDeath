@@ -24,17 +24,13 @@ class DiscountBoxListViewModel @Inject constructor(
 ) : ViewModel() {
 
     val discountBoxList = discountBoxStore.getDiscountBoxes()
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(), emptyList())
 
     private val _navigateToModification = MutableSharedFlow<Unit>()
     val navigateToModification = _navigateToModification.asSharedFlow()
 
     init {
         fetchDiscountBoxes()
-
-        discountBoxStore.getDiscountBoxes()
-            .onEach {
-                Log.d("DiscountBoxListViewModel", "dbs: $it")
-            }.launchIn(viewModelScope)
     }
 
     private fun fetchDiscountBoxes() {

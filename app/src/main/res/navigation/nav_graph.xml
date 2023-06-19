@@ -30,7 +30,7 @@
 
         <action
             android:id="@+id/to_graph_discount_boxes"
-            app:destination="@id/graph_discount_boxes" />
+            app:destination="@id/graph_discount_boxes_temp" />
     </fragment>
 
     <navigation
