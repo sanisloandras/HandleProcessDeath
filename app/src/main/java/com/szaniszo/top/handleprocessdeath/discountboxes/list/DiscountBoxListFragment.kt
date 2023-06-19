@@ -19,7 +19,11 @@ class DiscountBoxListFragment : Fragment() {
     private val viewModel by viewModels<DiscountBoxListViewModel>()
 
     private lateinit var viewDataBinding: DiscountBoxListFragmentBinding
-    private val adapter = DiscountBoxListAdapter()
+    private val adapter = DiscountBoxListAdapter {
+        findNavController().navigate(
+            DiscountBoxListFragmentDirections.toDiscountBoxDetailsFragment(it)
+        )
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -37,26 +41,13 @@ class DiscountBoxListFragment : Fragment() {
         viewDataBinding.lifecycleOwner = viewLifecycleOwner
         viewDataBinding.rvDiscountBoxList.adapter = adapter
         collectDiscountBoxList()
-        collectNavigateToModification()
     }
 
     private fun collectDiscountBoxList() {
         viewLifecycleOwner.lifecycleScope.launch {
-            repeatOnLifecycle(Lifecycle.State.RESUMED) {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.discountBoxList.collect {
                     adapter.submitList(it)
-                }
-            }
-        }
-    }
-
-    private fun collectNavigateToModification() {
-        viewLifecycleOwner.lifecycleScope.launch {
-            repeatOnLifecycle(Lifecycle.State.RESUMED) {
-                viewModel.navigateToModification.collect {
-                    findNavController().navigate(
-                        DiscountBoxListFragmentDirections.actionDiscountBoxListFragmentToDiscountBoxModificationListFragment()
-                    )
                 }
             }
         }

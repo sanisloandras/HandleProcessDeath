@@ -1,18 +1,11 @@
 package com.szaniszo.top.handleprocessdeath.discountboxes.list
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.szaniszo.top.handleprocessdeath.data.action.DiscountBoxAction
-import com.szaniszo.top.handleprocessdeath.data.model.DiscountBox
 import com.szaniszo.top.handleprocessdeath.data.store.DiscountBoxStore
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.SharingStarted
-import kotlinx.coroutines.flow.asSharedFlow
-import kotlinx.coroutines.flow.launchIn
-import kotlinx.coroutines.flow.mapLatest
-import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -24,17 +17,10 @@ class DiscountBoxListViewModel @Inject constructor(
 ) : ViewModel() {
 
     val discountBoxList = discountBoxStore.getDiscountBoxes()
-
-    private val _navigateToModification = MutableSharedFlow<Unit>()
-    val navigateToModification = _navigateToModification.asSharedFlow()
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(), emptyList())
 
     init {
         fetchDiscountBoxes()
-
-        discountBoxStore.getDiscountBoxes()
-            .onEach {
-                Log.d("DiscountBoxListViewModel", "dbs: $it")
-            }.launchIn(viewModelScope)
     }
 
     private fun fetchDiscountBoxes() {
@@ -43,9 +29,4 @@ class DiscountBoxListViewModel @Inject constructor(
         }
     }
 
-    fun navigateToModification() {
-        viewModelScope.launch {
-            _navigateToModification.emit(Unit)
-        }
-    }
 }
