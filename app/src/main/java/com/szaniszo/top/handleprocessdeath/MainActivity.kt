@@ -1,21 +1,9 @@
 package com.szaniszo.top.handleprocessdeath
 
-import android.app.Activity
 import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import android.util.Log
 import androidx.fragment.app.FragmentActivity
-import androidx.navigation.NavController
-import androidx.navigation.findNavController
-import com.szaniszo.top.handleprocessdeath.ui.theme.HandleProcessDeathTheme
+import androidx.navigation.fragment.NavHostFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 /*
@@ -86,5 +74,13 @@ class MainActivity : FragmentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
+
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        val navController = navHostFragment.navController
+        navController.addOnDestinationChangedListener { controller, destination, arguments ->
+            Log.d("MainActivity", "destination ${destination.displayName}")
+            Log.d("MainActivity", "arguments ${arguments}")
+        }
     }
 }

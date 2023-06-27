@@ -16,7 +16,7 @@
 
         <variable
             name="vm"
-            type="com.szaniszo.top.handleprocessdeath.discountboxes.details.DiscountBoxDetailsViewModel" />
+            type="com.szaniszo.top.handleprocessdeath.discountboxes.DiscountBoxViewModel" />
     </data>
 
     <LinearLayout
