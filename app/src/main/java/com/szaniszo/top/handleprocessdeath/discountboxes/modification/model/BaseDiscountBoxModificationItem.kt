@@ -1,0 +1,3 @@
+package com.szaniszo.top.handleprocessdeath.discountboxes.modification.model
+
+abstract class BaseDiscountBoxModificationItem

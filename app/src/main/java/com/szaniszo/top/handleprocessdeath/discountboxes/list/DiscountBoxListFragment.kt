@@ -41,6 +41,7 @@ class DiscountBoxListFragment : Fragment() {
         viewDataBinding.lifecycleOwner = viewLifecycleOwner
         viewDataBinding.rvDiscountBoxList.adapter = adapter
         collectDiscountBoxList()
+        collectNavigateToModificationEvents()
     }
 
     private fun collectDiscountBoxList() {
@@ -48,6 +49,16 @@ class DiscountBoxListFragment : Fragment() {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.discountBoxList.collect {
                     adapter.submitList(it)
+                }
+            }
+        }
+    }
+
+    private fun collectNavigateToModificationEvents() {
+        viewLifecycleOwner.lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.navigateToModification.collect {
+                    findNavController().navigate(DiscountBoxListFragmentDirections.toDiscountBoxModificationListFragment())
                 }
             }
         }
