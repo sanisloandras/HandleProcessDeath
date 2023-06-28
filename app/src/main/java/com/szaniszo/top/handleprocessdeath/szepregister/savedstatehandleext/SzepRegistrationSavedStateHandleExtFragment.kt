@@ -7,12 +7,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.szaniszo.top.handleprocessdeath.databinding.SzepRegisterSavedStateHandleExtFragmentBinding
-import com.szaniszo.top.handleprocessdeath.szepregister.savedstatehandlelivedata.SzepRegisterSavedStateHandleLiveDataViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class SzepRegisterSavedStateHandleExtFragment : Fragment() {
-    private val viewModel by viewModels<SzepRegisterSavedStateHandleExtViewModel>()
+class SzepRegistrationSavedStateHandleExtFragment : Fragment() {
+    private val viewModel by viewModels<SzepCardRegistrationSavedStateHandleExtViewModel>()
 
     private lateinit var viewDataBinding: SzepRegisterSavedStateHandleExtFragmentBinding
 

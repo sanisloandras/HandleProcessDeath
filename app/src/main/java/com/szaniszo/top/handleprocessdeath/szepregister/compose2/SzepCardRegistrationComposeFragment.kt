@@ -1,4 +1,4 @@
-package com.szaniszo.top.handleprocessdeath.discountboxes.details
+package com.szaniszo.top.handleprocessdeath.szepregister.compose2
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,16 +9,15 @@ import androidx.fragment.app.Fragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class DiscountBoxDetailsFragment : Fragment() {
+class SzepCardRegistrationComposeFragment : Fragment() {
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
+        inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         return ComposeView(requireContext()).apply {
             setContent {
-                DiscountBoxDetailsRoute()
+                SzepRegisterRoute()
             }
         }
     }

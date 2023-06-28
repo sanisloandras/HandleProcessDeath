@@ -31,6 +31,12 @@
         <action
             android:id="@+id/to_graph_discount_boxes"
             app:destination="@id/graph_discount_boxes" />
+        <action
+            android:id="@+id/action_demoFragment_to_szepRegisterComposeFragment"
+            app:destination="@id/szepRegisterComposeFragment" />
+        <action
+            android:id="@+id/action_demoFragment_to_szepRegisterComposeFragment2"
+            app:destination="@id/szepRegisterComposeFragment2" />
     </fragment>
 
     <fragment
@@ -49,7 +55,7 @@
         android:label="SzepRegisterSavedStateHandleLiveDataFragment" />
     <fragment
         android:id="@+id/szepRegisterSavedStateHandleExtFragment"
-        android:name="com.szaniszo.top.handleprocessdeath.szepregister.savedstatehandleext.SzepRegisterSavedStateHandleExtFragment"
+        android:name="com.szaniszo.top.handleprocessdeath.szepregister.savedstatehandleext.SzepRegistrationSavedStateHandleExtFragment"
         android:label="SzepRegisterSavedStateHandleExtFragment" />
 
     <navigation
@@ -83,4 +89,13 @@
                 app:nullable="true" />
         </fragment>
     </navigation>
+    <fragment
+        android:id="@+id/szepRegisterComposeFragment"
+        android:name="com.szaniszo.top.handleprocessdeath.szepregister.compose.SzepCardRegistrationComposeFragment"
+        android:label="SzepRegisterComposeFragment" />
+
+    <fragment
+        android:id="@+id/szepRegisterComposeFragment2"
+        android:name="com.szaniszo.top.handleprocessdeath.szepregister.compose2.SzepCardRegistrationComposeFragment"
+        android:label="SzepRegisterComposeFragment" />
 </navigation>

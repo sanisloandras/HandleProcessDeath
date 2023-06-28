@@ -40,5 +40,11 @@ class DemoFragment : Fragment() {
         viewDataBinding.discountBoxes.setOnClickListener {
             findNavController().navigate(DemoFragmentDirections.toGraphDiscountBoxes())
         }
+        viewDataBinding.szepRegisterComposeUi.setOnClickListener {
+            findNavController().navigate(DemoFragmentDirections.actionDemoFragmentToSzepRegisterComposeFragment())
+        }
+        viewDataBinding.szepRegisterComposeVm.setOnClickListener {
+            findNavController().navigate(DemoFragmentDirections.actionDemoFragmentToSzepRegisterComposeFragment2())
+        }
     }
 }

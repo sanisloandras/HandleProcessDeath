@@ -6,4 +6,14 @@ data class DiscountBox(
     val description: String,
     val groupId: String,
     val isActivated: Boolean
-)
+) {
+    companion object {
+        val DEFAULT = DiscountBox(
+            id = "",
+            title = "",
+            description = "",
+            groupId = "",
+            isActivated = false
+        )
+    }
+}

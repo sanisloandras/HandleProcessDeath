@@ -15,7 +15,7 @@
 
         <variable
             name="vm"
-            type="com.szaniszo.top.handleprocessdeath.szepregister.savedstatehandleext.SzepRegisterSavedStateHandleExtViewModel" />
+            type="com.szaniszo.top.handleprocessdeath.szepregister.savedstatehandleext.SzepCardRegistrationSavedStateHandleExtViewModel" />
     </data>
 
     <LinearLayout

@@ -14,25 +14,25 @@
             android:id="@+id/szep_register_simple"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Szep Register Simple" />
+            android:text="Szep Card Registration Simple" />
 
         <Button
             android:id="@+id/szep_register_saved_state_handle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Szep Register Saved State Handle" />
+            android:text="Szep Card Registration Saved State Handle" />
 
         <Button
             android:id="@+id/szep_register_saved_state_handle_ext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Szep Register Saved State Handle Extension" />
+            android:text="Szep Card Registration Saved State Handle Extension" />
 
         <Button
             android:id="@+id/szep_register_saved_state_handle_live_data"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Szep Register Saved State Handle LiveData" />
+            android:text="Szep Card Registration Saved State Handle LiveData" />
 
         <Button
             android:id="@+id/transactions"
@@ -45,5 +45,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Discount Boxes" />
+
+        <Button
+            android:id="@+id/szep_register_compose_ui"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Szep Card Registration Compose UI" />
+
+        <Button
+            android:id="@+id/szep_register_compose_vm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Szep Card Registration Compose VM" />
     </LinearLayout>
 </layout>
