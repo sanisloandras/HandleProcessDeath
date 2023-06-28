@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2019-2023 by OTP Bank Plc. All rights reserved.
+  ~
+  ~ The copyright to the computer software herein is the property of
+  ~ OTP Bank Plc or its licensors. The software may be used and/or
+  ~ copied only with the written permission of OTP Bank Plc or in
+  ~ accordance with the terms and conditions stipulated in the
+  ~ agreement/contract under which the software has been supplied.
+  -->
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.szaniszo.top.handleprocessdeath.discountboxes.modification.DiscountBoxModificationListViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:elevation="16dp"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Módosítás" />
+
+            <Button
+                android:id="@+id/btn_new_transaction"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{() -> vm.save()}"
+                android:text="Mentés" />
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_discount_box_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="8dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/discount_box_modification_list_item" />
+
+    </LinearLayout>
+</layout>

@@ -3,24 +3,25 @@
             xmlns:app="http://schemas.android.com/apk/res-auto"
             xmlns:tools="http://schemas.android.com/tools"
             android:id="@+id/graph_discount_boxes"
-            app:startDestination="@id/discountBoxListFragment">
-
-    <fragment
-        android:id="@+id/discountBoxListFragment"
-        android:name="com.szaniszo.top.handleprocessdeath.discountboxes.list.DiscountBoxListFragment"
-        android:label="DiscountBoxListFragment"
-        tools:layout="@layout/discount_box_list_fragment">
-        <action
-            android:id="@+id/to_discountBoxDetailsFragment"
-            app:destination="@id/discountBoxDetailsFragment" />
-    </fragment>
+            app:startDestination="@id/discountBoxModificationListFragment">
 
     <fragment
         android:id="@+id/discountBoxDetailsFragment"
         android:name="com.szaniszo.top.handleprocessdeath.discountboxes.details.DiscountBoxDetailsFragment"
-        android:label="DiscountBoxDetailsFragment">
+        android:label="DiscountBoxDetailsFragment"
+        tools:layout="@layout/discount_box_details_fragment">
         <argument
             android:name="discountBoxId"
             app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/discountBoxModificationListFragment"
+        android:name="com.szaniszo.top.handleprocessdeath.discountboxes.modification.DiscountBoxModificationListFragment"
+        android:label="DiscountBoxModificationListFragment"
+        tools:layout="@layout/discount_box_modification_list_fragment" >
+        <action
+            android:id="@+id/action_discountBoxModificationListFragment_to_discountBoxDetailsFragment"
+            app:destination="@id/discountBoxDetailsFragment" />
     </fragment>
 </navigation>
